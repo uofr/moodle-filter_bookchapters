@@ -88,7 +88,7 @@ class filter_bookchapters extends moodle_text_filter {
             foreach ($modinfo->cms as $cm) {
                 // Use normal access control and visibility, but exclude labels and hidden activities.
                 if ($cm->modname == "book" && ($cm->visible and $cm->has_view() and $cm->uservisible)) {
-                    if ($chapters = $DB->get_records('book_chapters',array('bookid' => $cm->instance))) {
+                    if ($chapters = $DB->get_records('book_chapters', array('bookid' => $cm->instance))) {
                         foreach ($chapters as $chapter) {
                             if (!$chapter->hidden) { // Do not link if chapter is hidden.
                                 $sortedchapters[] = (object)array(
