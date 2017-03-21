@@ -95,7 +95,7 @@ class filter_bookchapters extends moodle_text_filter {
                                     'name' => $chapter->title,
                                     'url' => $cm->url . '&chapterid=' . $chapter->id,
                                     'id' => $chapter->id,
-                                    'namelen' => -strlen($chapter->titlee), // Negative value for reverse sorting.
+                                    'namelen' => -strlen($chapter->title), // Negative value for reverse sorting.
                                 );
                             }
                         }
