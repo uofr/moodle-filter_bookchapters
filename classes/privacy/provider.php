@@ -14,19 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * Privacy Subsystem implementation for filter_sectionnames.
+ * Privacy Subsystem implementation for filter_bookchapters.
  *
- * @package    filter_sectionnames
+ * @package    filter_bookchapters
  * @copyright  2018 Matt Davidson <davidso1@rose-hulman.edu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace filter_sectionnames\privacy;
+namespace filter_bookchapters\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem for filter_sectionnames implementing null_provider.
+ * Privacy Subsystem for filter_bookchapters implementing null_provider.
  *
  * @copyright  2018 Matt Davidson <davidso1@rose-hulman.edu>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
