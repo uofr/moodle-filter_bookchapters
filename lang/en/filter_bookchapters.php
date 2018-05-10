@@ -23,3 +23,4 @@
  */
 
 $string['filtername'] = 'Book chapter auto-linking';
+$string['privacy:metadata'] = 'This plugin does not save or export user data.';
