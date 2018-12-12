@@ -24,14 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-/**
- *
- * Set the default to on.
- *
- */
 function xmldb_filter_bookchapters_install() {
-    global $CFG;
-    require_once("$CFG->libdir/filterlib.php");
 
-    filter_set_global_state('bookchapters', TEXTFILTER_ON, 1);
 }
