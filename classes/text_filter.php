@@ -25,6 +25,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace filter_bookchapters;
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
@@ -34,7 +36,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Matt Davidson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class filter_bookchapters extends moodle_text_filter {
+class text_filter extends \core_filters\text_filter {
     // Trivial-cache - keyed on $cachedcourseid and $cacheduserid.
     /** @var array section list. */
     public static $chapterlist = null;
@@ -104,7 +106,7 @@ class filter_bookchapters extends moodle_text_filter {
             }
 
             // Sort activities by the length of the section name in reverse order.
-            core_collator::asort_objects_by_property($sortedchapters, 'namelen', core_collator::SORT_NUMERIC);
+            \core_collator::asort_objects_by_property($sortedchapters, 'namelen', \core_collator::SORT_NUMERIC);
 
             foreach ($sortedchapters as $chapter) {
                 $title = s(trim(strip_tags($chapter->name)));
@@ -112,13 +114,13 @@ class filter_bookchapters extends moodle_text_filter {
                 $entname  = s($currentname);
                 // Avoid empty or unlinkable activity names.
                 if (!empty($title)) {
-                    $hrefopen = html_writer::start_tag('a',
+                    $hrefopen = \html_writer::start_tag('a',
                             array('class' => 'autolink', 'title' => $title,
                                 'href' => $chapter->url));
-                    self::$chapterlist[$chapter->id] = new filterobject($currentname, $hrefopen, '</a>', false, true);
+                    self::$chapterlist[$chapter->id] = new \filterobject($currentname, $hrefopen, '</a>', false, true);
                     if ($currentname != $entname) {
                         // If name has some entity (&amp; &quot; &lt; &gt;) add that filter too. MDL-17545.
-                        self::$chapterlist[$chapter->id.'-e'] = new filterobject($entname, $hrefopen, '</a>', false, true);
+                        self::$chapterlist[$chapter->id.'-e'] = new \filterobject($entname, $hrefopen, '</a>', false, true);
                     }
                 }
             }
